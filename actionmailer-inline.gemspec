@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency("rails", ["~> 3.1"])
 
   gem.add_development_dependency 'rspec-rails', '~> 2.8.0'
+  gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'sass', '~> 3.1'
   gem.add_development_dependency 'sqlite3', '1.3.5'
   gem.add_development_dependency 'mail'
