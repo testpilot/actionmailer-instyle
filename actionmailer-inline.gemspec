@@ -21,11 +21,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency("premailer", ["~> 1.7"])
   gem.add_dependency("rails", ["~> 3.1"])
 
-  gem.add_development_dependency 'rspec-core'
-  gem.add_development_dependency 'rspec-expectations'
-  gem.add_development_dependency 'mocha'
+  gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'mail'
   gem.add_development_dependency 'nokogiri'
-  gem.add_development_dependency 'hpricot'
   gem.add_development_dependency 'combustion', '~> 0.3.1'
 end
