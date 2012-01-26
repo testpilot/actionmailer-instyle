@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/action_mailer-inline/version', __FILE__)
+require File.expand_path('../lib/action_mailer/inline/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Ivan Vanderbyl"]
@@ -9,12 +9,23 @@ Gem::Specification.new do |gem|
                          without any configuration needs. Create HTML emails, include a
                          CSS file as you do in a normal HTML document and premailer will
                          inline the included CSS.}
-  gem.homepage      = "http://github.com/testpilot/action_mailer-inline"
+  gem.homepage      = "http://github.com/testpilot/actionmailer-inline"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "action_mailer-inline"
+  gem.name          = "actionmailer-inline"
   gem.require_paths = ["lib"]
   gem.version       = ActionMailer::Inline::VERSION
+
+  gem.add_dependency("premailer", ["~> 1.7"])
+  gem.add_dependency("rails", ["~> 3.1"])
+
+  gem.add_development_dependency 'rspec-core'
+  gem.add_development_dependency 'rspec-expectations'
+  gem.add_development_dependency 'mocha'
+  gem.add_development_dependency 'mail'
+  gem.add_development_dependency 'nokogiri'
+  gem.add_development_dependency 'hpricot'
+  gem.add_development_dependency 'combustion', '~> 0.3.1'
 end
