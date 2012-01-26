@@ -1,4 +1,5 @@
 require "action_mailer/inline/version"
+require "action_mailer/base"
 
 module ActionMailer
   module Inline
