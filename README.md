@@ -4,7 +4,7 @@
 
 HTML Emails can be a PITN, especially when you want maximum email client compatibility, of which the best way to achieve this is inline CSS. Unfortunately nobody actually wants to be forced into writing crap like that so we've created **InStyle**, it will automatically intercept your emails and look for a `stylesheet` linking to something inside your assets folder, extract all the styles, and convert them to inline styles on the fly.
 
-_There are a couple of other projects which do this, some have not been updated for a while and none of them work with the Rails 3.1 asset pipeline._ InStyle uses Sprockets to render CSS which means you can use Sass, Compass, and any other CSS hackery you desire, including using stylesheets you would usually only use within your views e.g If you want to email an activity digest and make it look the same as what the user is used to seeing within your application (think Yammer).
+_There are a couple of other projects which do this, some have not been updated for a while and none of them work with the Rails 3.1 asset pipeline._ *InStyle* uses Sprockets to render CSS which means you can use Sass, Compass, and any other CSS hackery you desire, including using stylesheets you would usually only use within your views e.g If you want to email an activity digest and make it look the same as what the user is used to seeing within your application (think Yammer).
 
 ## Requirements
 
@@ -29,14 +29,14 @@ $ bundle
 
 Once installed it will add the required hooks out of the box to intercept each email being sent.
 
-*Stylesheets*
+**Stylesheets**
 
 As with all your other stylesheets, put them in `app/assets/stylesheets` and include them into your mailer
-template using `stylesheet_include_tag "account_mailer"`, where `account_mailer` is the filename less the extension of the stylesheet you want to use.
+template using `stylesheet_link_tag "account_mailer"`, where `account_mailer` is the filename less the extension of the stylesheet you want to use.
 
 Everything runs through the Asset Pipeline so you can use Sass simply by adding the `.scss` extension as you would with all other stylesheets.
 
-*Compass*
+**Compass**
 
 Because Sass works out of the box, you can also include Compass for browser specific mixins and useful CSS3 helpers, keeping in mind that some email clients (Outlook for example) use very dated rendering engines and a lot of CSS properties may have undesired effects or not work at all.
 
@@ -57,7 +57,7 @@ In `app/views/layouts/account_mailer.html.haml`
 ```haml
 %html
   %head
-    = stylesheet_include_tag "account_mailer"
+    = stylesheet_link_tag "account_mailer"
 
   %body
     %table.main
@@ -65,11 +65,11 @@ In `app/views/layouts/account_mailer.html.haml`
         %td= yield
 ```
 
-You will notice that we have added a stylesheet in the head, the location is not crucial, but the use of `stylesheet_include_tag` is because it will generate a link which we can process and feed through Sprockets in order to generate the inline styles.
+You will notice that we have added a stylesheet link in the `head`, this location is not crucial, but the use of `stylesheet_link_tag` is because it will generate a link which we can process and feed through Sprockets in order to generate the inline styles.
 
 **3. The stylesheet.**
 
-You can use any style off CSS you like, you can even include other application styles — such as activity feed styles if you are emailing a digest of an activity feed.
+You can use any style off CSS you like, we're using Sass.
 
 `app/assets/stylesheets/account_mailer.css.scss`:
 
@@ -108,7 +108,19 @@ In order to take advantage of all this fancy work, you must define a html view f
 AccountMailer.account_created_email(@user).deliver
 ```
 
-**6. Grab a beer.**
+**6. Send awesome emails.**
+
+The resulting email will look something like this:
+```html
+...
+<body style="">
+
+
+..
+
+```
+
+**7. Grab a beer.**
 
 As above.
 
