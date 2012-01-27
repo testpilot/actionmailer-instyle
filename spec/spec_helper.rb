@@ -22,5 +22,3 @@ RSpec.configure do |config|
     ActionMailer::Base.delivery_method = :test
   end
 end
-
-
