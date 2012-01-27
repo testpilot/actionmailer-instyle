@@ -6,8 +6,7 @@ Bundler.require
 require "rails"
 require "combustion"
 
-Combustion.initialize! 
-# :action_controller, :action_view, :sprockets, :action_mailer
+Combustion.initialize!
 
 require 'rspec/rails'
 
@@ -18,6 +17,10 @@ require 'action_mailer/inline'
 
 RSpec.configure do |config|
   config.mock_with :rspec
+
+  config.before do
+    ActionMailer::Base.delivery_method = :test
+  end
 end
 
 
