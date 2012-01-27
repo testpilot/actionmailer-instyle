@@ -9,12 +9,12 @@ Gem::Specification.new do |gem|
                          without any configuration needs. Create HTML emails, include a
                          CSS file as you do in a normal HTML document and premailer will
                          inline the included CSS.}
-  gem.homepage      = "http://github.com/testpilot/actionmailer-inline"
+  gem.homepage      = "http://github.com/testpilot/actionmailer-instyle"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "actionmailer-inline"
+  gem.name          = "actionmailer-instyle"
   gem.require_paths = ["lib"]
   gem.version       = ActionMailer::InStyle::VERSION
 

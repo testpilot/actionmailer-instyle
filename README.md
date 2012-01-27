@@ -5,19 +5,21 @@
 HTML Email is hard, especially when you find yourself wrestling with inline CSS to make it look good, luckily for you we're here to make it easy, ActionMailer::InStyle
 lets you write standard CSS, using Sass or the likes within the Rails 3.1 Asset Pipeline and automatically converts it to inline CSS using Premailer.
 
+## Requirements
+
+This gem is built specifically to take advantage of the Rails 3.1 Asset Pipeline, as such you must be using Rails ~>3.1
+
+Additonally Ruby 1.8.7 is not supported due to favouring the Ruby 1.9 Hash syntax. If you want 1.8.7 support, issue a pull request.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'actionmailer-inline'
+    gem 'actionmailer-instyle'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install actionmailer-inline
 
 ## Usage
 
