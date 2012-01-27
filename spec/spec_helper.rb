@@ -13,7 +13,7 @@ require 'rspec/rails'
 require 'nokogiri'
 require "combustion"
 
-require 'action_mailer/inline'
+require 'action_mailer/in_style'
 
 RSpec.configure do |config|
   config.mock_with :rspec
