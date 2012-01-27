@@ -9,7 +9,7 @@ lets you write standard CSS, using Sass or the likes within the Rails 3.1 Asset 
 
 This gem is built specifically to take advantage of the Rails 3.1 Asset Pipeline, as such you must be using Rails ~>3.1
 
-Additonally Ruby 1.8.7 is not supported due to favouring the Ruby 1.9 Hash syntax. If you want 1.8.7 support, issue a pull request.
+_Additonally Ruby 1.8.7 is not supported due to favouring the Ruby 1.9 Hash syntax. If you want 1.8.7 support, issue a pull request._
 
 ## Installation
 
@@ -23,7 +23,24 @@ And then execute:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed it will add the required hooks out of the box.
+
+*Stylesheets*
+
+As with all your other stylesheets, put them in `app/assets/stylesheets` and include them into your mailer
+template using `stylesheet_include_tag "account_mailer"`, where `account_mailer` is the filename less the extension of the stylesheet you want to
+include.
+
+Everything runs through the Asset Pipeline so you can use Sass simply by adding the `.scss` extension as you would with all other stylesheets.
+
+*Compass*
+
+Because Sass works out of the box, you can also include compass for browser specific mixins, keeping in mind that some email client (Outlook for example)
+use very crappy rendering engines and some CSS properties may have undesired effects or not work at all.
+
+For a complete rundown on what is supported, checkout this guide which CampaignMonitor has compiled.
+
+(CampaignMonitor's guide to CSS support in email)[http://www.campaignmonitor.com/css/]
 
 ## Contributing
 
