@@ -1,6 +1,6 @@
 require 'premailer'
 module ActionMailer
-  module Inline
+  module InStyle
     class Premailer < ::Premailer
 
       def load_css_from_html!

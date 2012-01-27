@@ -1,6 +1,8 @@
-# ActionMailer::Inline
+# ActionMailer::InStyle
 
-HTML Email is hard, especially when you find yourself wrestling with inline CSS to make it look good, luckily for you we're here to make it easy, ActionMailer::Inline
+![TestPilot Build Status](http://testpilot.me/testpilot/actionmailer-instyle.png)
+
+HTML Email is hard, especially when you find yourself wrestling with inline CSS to make it look good, luckily for you we're here to make it easy, ActionMailer::InStyle
 lets you write standard CSS, using Sass or the likes within the Rails 3.1 Asset Pipeline and automatically converts it to inline CSS using Premailer.
 
 ## Installation

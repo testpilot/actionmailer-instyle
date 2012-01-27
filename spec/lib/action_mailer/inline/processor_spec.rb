@@ -1,13 +1,13 @@
 require "spec_helper"
 
-describe ActionMailer::Inline::Processor do
+describe ActionMailer::InStyle::Processor do
 
   before do
-    ActionMailer::Inline.stub(:delivering_email).and_return(message)
+    ActionMailer::InStyle.stub(:delivering_email).and_return(message)
   end
 
   let(:message) { NotificationMailer.welcome_html_email.deliver }
-  let(:processor) { ActionMailer::Inline::Processor.new(message) }
+  let(:processor) { ActionMailer::InStyle::Processor.new(message) }
 
   describe :message do
     it "should have a html part" do

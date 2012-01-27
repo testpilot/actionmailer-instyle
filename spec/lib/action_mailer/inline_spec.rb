@@ -1,12 +1,12 @@
 require "spec_helper"
 
-describe ActionMailer::Inline do
+describe ActionMailer::InStyle do
   it "is included in Mail interceptors" do
-    Mail.class_variable_get("@@delivery_interceptors").should include ActionMailer::Inline
+    Mail.class_variable_get("@@delivery_interceptors").should include ActionMailer::InStyle
   end
 
   let(:original_message) { NotificationMailer.welcome_html_email.deliver }
-  let(:message) { ActionMailer::Inline.delivering_email(original_message) }
+  let(:message) { ActionMailer::InStyle.delivering_email(original_message) }
 
   it "should keep text version of email if present" do
     original_message.text_part.body.to_s.should == message.text_part.body.to_s
@@ -17,7 +17,7 @@ describe ActionMailer::Inline do
   end
 
   it "should not have a style tag in original email" do
-    ActionMailer::Inline.should_receive(:delivering_email).once
+    ActionMailer::InStyle.should_receive(:delivering_email).once
     original_message = NotificationMailer.welcome_html_email.deliver
     Nokogiri::HTML(original_message.html_part.body.to_s).css('body').first.attributes['style'].should be_nil
   end
@@ -32,7 +32,7 @@ describe ActionMailer::Inline do
   end
 
   it "should not do anything if no stylesheets are present" do
-    message_with_no_css = ActionMailer::Inline.delivering_email(NotificationMailerNoStyle.email_with_no_style.deliver)
+    message_with_no_css = ActionMailer::InStyle.delivering_email(NotificationMailerNoStyle.email_with_no_style.deliver)
     Nokogiri::HTML(message_with_no_css.html_part.body.to_s).css('body').first.attributes['style'].should be_nil
   end
 
@@ -42,7 +42,7 @@ describe ActionMailer::Inline do
   end
 
   it "should create a text part from the html part if not present" do
-    message = ActionMailer::Inline.delivering_email(NotificationMailer.email_with_html_only.deliver)
+    message = ActionMailer::InStyle.delivering_email(NotificationMailer.email_with_html_only.deliver)
     message.text_part.body.to_s.should == "Welcome, this is a HTML email\n\nAnother line"
   end
 end

@@ -1,7 +1,7 @@
 require "premailer"
 
 module ActionMailer
-  module Inline
+  module InStyle
     class Processor
 
       def self.inline!(message)
@@ -17,14 +17,14 @@ module ActionMailer
         @message = message
 
         @existing_html_part = message.html_part || (message.content_type =~ /text\/html/ && message)
-        @premailer = ActionMailer::Inline::Premailer.new(html_part.body.to_s, :with_html_string => true, :remove_classes => true)
+        @premailer = ActionMailer::InStyle::Premailer.new(html_part.body.to_s, :with_html_string => true, :remove_classes => true)
       end
 
       def html_part
         @existing_html_part
       end
 
-      # Inline!
+      # InStyle!
       # Processes the message object, replacing the html part with an inlined
       # html version.
       #

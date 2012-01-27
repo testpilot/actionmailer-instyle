@@ -1,5 +1,5 @@
 module ActionMailer
-  module Inline
+  module InStyle
     VERSION = "0.0.1"
   end
 end
