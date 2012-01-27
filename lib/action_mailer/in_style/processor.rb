@@ -17,7 +17,7 @@ module ActionMailer
         @message = message
 
         @existing_html_part = message.html_part || (message.content_type =~ /text\/html/ && message)
-        @premailer = ActionMailer::InStyle::Premailer.new(html_part.body.to_s, :with_html_string => true, :remove_classes => true)
+        @premailer = ActionMailer::InStyle::Premailer.new(html_part.body.to_s, with_html_string: true, remove_classes: true)
       end
 
       def html_part

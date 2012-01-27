@@ -4,7 +4,7 @@ class NotificationMailerNoStyle < ActionMailer::Base
   default from: "Johnny Quids<quidlicker@example.com>"
 
   def email_with_no_style
-    mail(to: "archie@example.com", :subject => "We need dry ice")
+    mail(to: "archie@example.com", subject: "We need dry ice")
   end
 end
 
