@@ -77,7 +77,7 @@ You can use any style off CSS you like, we're using Sass.
 body {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
-  width: 100%
+  width: 100%;
   background: darken(white, 8%);
 }
 
@@ -104,6 +104,7 @@ In order to take advantage of all this fancy work, you must define a html view f
 ```
 
 **5. Send**
+
 ```ruby
 AccountMailer.account_created_email(@user).deliver
 ```
@@ -111,13 +112,21 @@ AccountMailer.account_created_email(@user).deliver
 **6. Send awesome emails.**
 
 The resulting email will look something like this:
+
 ```html
-...
-<body style="">
-
-
-..
-
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body style="font-family: 'Helvetica Neue', Helvetica, sans-serif; -webkit-font-smoothing: antialiased; width: 100%; background-color: #ebebeb;" bgcolor="#ebebeb">
+  <table style="width: 430px; background-color: white;" bgcolor="white">
+    <tr>
+      <td style="padding: 5px;">
+        <p>Hi Michael,</p>
+        <p>Your account has been successfully created, so don't waste any time, <a href="/started">Get started now</a></p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
 ```
 
 **7. Grab a beer.**
