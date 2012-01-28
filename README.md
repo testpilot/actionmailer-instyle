@@ -9,7 +9,6 @@ _There are a couple of other projects which do this, some have not been updated 
 ## Requirements
 
 This gem is built specifically to take advantage of the Rails 3.1 Asset Pipeline, as such you must be using Rails ~>3.1 and have the Asset Pipeline enabled (default)
-_Additonally Ruby 1.8.7 is not supported due to favouring the Ruby 1.9 Hash syntax. If you want 1.8.7 support, issue a pull request._
 
 ## Installation
 
