@@ -16,7 +16,7 @@ _Additonally Ruby 1.8.7 is not supported due to favouring the Ruby 1.9 Hash synt
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'actionmailer-instyle'
+gem 'actionmailer-instyle', :require => 'action_mailer/in_style'
 ```
 
 And then execute:

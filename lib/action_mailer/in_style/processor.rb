@@ -35,8 +35,8 @@ module ActionMailer
         capture_existing_message_parts
         reset_message_body!
 
-        add_html_part!
         add_text_part!
+        add_html_part!
         add_attachments!
 
         message
@@ -47,8 +47,7 @@ module ActionMailer
         part = Mail::Part.new
         part.body = premailer.to_inline_css
         part.content_type = "text/html; charset=#{@msg_charset}"
-
-        message.add_part(part)
+        message.html_part = part
       end
 
       # Add a text part with either the pre-existing text part, or one generated with premailer.
@@ -56,7 +55,7 @@ module ActionMailer
         part = Mail::Part.new
         part.body = @existing_text_part || premailer.to_plain_text
         part.content_type = "text/plain; charset=#{@msg_charset}"
-        message.add_part(part)
+        message.text_part = part
       end
 
       # Re-add any attachments
