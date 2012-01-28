@@ -1,5 +1,5 @@
 require "action_mailer/in_style/version"
-require "action_mailer/base"
+require "action_mailer"
 
 module ActionMailer
   module InStyle
