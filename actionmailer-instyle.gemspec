@@ -18,8 +18,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = ActionMailer::InStyle::VERSION
 
-  gem.add_dependency("premailer", ["~> 1.7"])
-  gem.add_dependency("rails", ["~> 3.1"])
+  gem.add_dependency("premailer", "~> 1.7")
+  gem.add_dependency("actionmailer",  "~> 3.1")
+  gem.add_dependency("activesupport", "~> 3.1")
+  gem.add_dependency("sprockets", "~> 2.0")
 
   gem.add_development_dependency 'rspec-rails', '~> 2.8.0'
   gem.add_development_dependency 'guard-rspec'
