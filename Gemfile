@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :platform => :jruby do
-  gem 'jruby-openssl'
-  gem 'jdbc-sqlite3'
-  gem 'activerecord-jdbcsqlite3-adapter'
-end
+
+gem 'jruby-openssl', :platform => :jruby
+gem 'jdbc-sqlite3', :platform => :jruby
+gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
 
