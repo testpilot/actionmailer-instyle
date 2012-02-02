@@ -57,7 +57,7 @@ describe ActionMailer::InStyle::Processor do
     end
 
     it 'should include asset path for stylesheet in header' do
-      processor.html_part.body.should match /\<link(.+)href\=\"\/assets\/notification_mailer\.css\?(\w+)\"(.+)\>/
+      processor.html_part.body.should match /\<link(.+)href\=\"\/assets\/(\w+)\-(?:[0-9a-zA-Z]{32})\.([a-z]{3})\"(.+)\>/
     end
 
     it 'should have inlined css version without stylesheet links' do

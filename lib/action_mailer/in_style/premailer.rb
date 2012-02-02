@@ -30,7 +30,14 @@ module ActionMailer
       end
 
       def process_stylesheet_url(href)
-        href.to_s.sub(/\?[0-9a-zA-Z]+$/, '').sub(/^\/assets\//, '')
+        # Example stylesheet url: email-1bd4488901bfc2f2ccf4f044fc9154a6.css
+        href = href.to_s.sub(/\?[0-9a-zA-Z]+$/, '').sub(/^\/assets\//, '')
+
+        if href =~ /(\w+)\-(?:[0-9a-zA-Z]{32})\.([a-z]{3})/
+          href = href.gsub(/(\w+)\-(?:[0-9a-zA-Z]{32})\.([a-z]{3})/, [$1,$2].join('.'))
+        end
+
+        return href
       end
 
     end
