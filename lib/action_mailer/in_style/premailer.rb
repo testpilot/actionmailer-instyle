@@ -20,13 +20,17 @@ module ActionMailer
               # to generate the css. In this case we should be able to retrieve the css directly
               # from sprockets
               if tag.attributes['href'].to_s =~ /\/assets\//
-                link_uri = tag.attributes['href'].to_s.sub(/\?[0-9a-zA-Z]+$/, '').sub(/^\/assets\//, '')
+                link_uri = process_stylesheet_url(tag.attributes['href'])
                 asset = Rails.application.assets.find_asset(link_uri)
                 @css_parser.add_block!(asset.body) if asset
               end
             end
           end
         end
+      end
+
+      def process_stylesheet_url(href)
+        href.to_s.sub(/\?[0-9a-zA-Z]+$/, '').sub(/^\/assets\//, '')
       end
 
     end
